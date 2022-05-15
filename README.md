@@ -9,7 +9,7 @@ Present build is yet to be integrated, has only basic transactions in place.
 Installation-
 1. Requirements for NewRL as specified
 2. Unity-React-WebGL integration
-   $ npm install react-unity-webgl@8.x  # For Unity 2020 and 2021 (Current)
+  ### '$ npm install react-unity-webgl@8.x  # For Unity 2020 and 2021 (Current)'
 3. Download build folder and place in public
   https://drive.google.com/file/d/1yBxeuFnlQXakcJ4ro65SdwrO_Ozz5_Jx/view?usp=sharing
 
