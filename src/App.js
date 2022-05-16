@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
@@ -83,15 +82,19 @@ useEffect(function () {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
+    
+    
+    <div className="App" >
+      <p>Loading {progression * 100} percent...</p>
+    <div class="d-flex flex-row">
+    <header className="App-header">
         Balance: {balance}
         <button onClick = {() => getBalance(WALLET['address'], 'SOAP')}>Get Balance</button>
       
         <button onClick = {() => transferToken('0x7930939f1e79c4cb9d38569273d13665a68b6378', 5000)}>Send Tokens</button>
       
       </header>
-      <p>Loading {progression * 100} percent...</p>
+      
       <Unity style={{width: "80%",
 
           justifySelf: "right",
@@ -101,6 +104,9 @@ useEffect(function () {
           }}
             unityContext={unityContext} 
         />
+    </div>
+     
+         
     </div>
   );
 }
