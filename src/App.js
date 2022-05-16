@@ -1,7 +1,8 @@
-
-import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from "react";
+import Unity, { UnityContext } from "react-unity-webgl";
+
 
 function App() {
   const WALLET = {
@@ -9,6 +10,20 @@ function App() {
   "private": "gVs/kdRiu85pYNpOX3QEe9rvz/Zy5FRd9LIG+rUwt2Q=",
   "address": "0x8f80744afb707f09bfd3453263c6f4dde4966176"
 }
+
+const unityContext = new UnityContext({
+  loaderUrl: "build/Web1.loader.js",
+  dataUrl: "build/Web1.data",
+  frameworkUrl: "build/Web1.framework.js",
+  codeUrl: "build/Web1.wasm",
+});
+const [progression, setProgression] = useState(0);
+
+useEffect(function () {
+  unityContext.on("progress", function (progression) {
+    setProgression(progression);
+  });
+}, []);
 
   const [balance, setBalance] = useState('');
 
@@ -76,6 +91,16 @@ function App() {
         <button onClick = {() => transferToken('0x7930939f1e79c4cb9d38569273d13665a68b6378', 5000)}>Send Tokens</button>
       
       </header>
+      <p>Loading {progression * 100} percent...</p>
+      <Unity style={{width: "80%",
+
+          justifySelf: "right",
+
+
+          alignSelf: "right",
+          }}
+            unityContext={unityContext} 
+        />
     </div>
   );
 }
