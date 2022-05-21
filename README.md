@@ -1,7 +1,7 @@
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Game has been built with Unity and built with WebGL for React integration.
+Game has been built in Unity and built with WebGL for React integration.
 
 Refer - https://github.com/jeffreylanters/react-unity-webgl for integration of Unity on React.
 Present build has only basic transactions in place. 
