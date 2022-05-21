@@ -24,6 +24,7 @@ useEffect(function () {
   });
 }, []);
 
+
   const [balance, setBalance] = useState('');
 
 
@@ -32,10 +33,12 @@ useEffect(function () {
     .then((res) => res.json())
 
     console.log(balance)
+    unityContext.send("TextLeft", "Gettext", balance);
     setBalance(balance['balance'])
   }
 
   async function transferToken(destWallet, amountToSend) {
+    
     const unsignedTransaction = await fetch('http://testnet.newrl.net:8182/add-transfer', {
     method: 'POST',
     headers: {
@@ -77,8 +80,9 @@ useEffect(function () {
       signedTransaction
     )}).then((res) => res.json());
     
+    
     console.log(validationResult)
-
+    unityContext.send("TextRight", "Gettext", 100);
   }
 
   return (
@@ -90,9 +94,10 @@ useEffect(function () {
     <header className="App-header">
         Balance: {balance}
         <button onClick = {() => getBalance(WALLET['address'], 'SOAP')}>Get Balance</button>
-      
+        
+        
         <button onClick = {() => transferToken('0x7930939f1e79c4cb9d38569273d13665a68b6378', 5000)}>Send Tokens</button>
-      
+        
       </header>
       
       <Unity style={{width: "80%",
