@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-unity-webgl": "^8.8.0"
+  }
+}
